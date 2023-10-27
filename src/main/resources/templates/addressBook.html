@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buddy List</title>
+</head>
+<body>
+<h1>Buddy List</h1>
+<p>Owner: <span th:text="${addressBook.owner}"></span></p>
+<ul>
+    <li th:each="buddyInfo : ${addressBook.buddyList}">
+        <span th:text="${buddyInfo.name}"></span> - <span th:text="${buddyInfo.phoneNumber}"></span>
+    </li>
+</ul>
+</body>
+</html>
