@@ -21,7 +21,6 @@ public class BuddyInfo {
 
     public BuddyInfo(){
     }
-
     public String getPhoneNumber() {
         return this.phoneNumber;
     }

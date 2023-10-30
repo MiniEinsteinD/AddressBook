@@ -35,17 +35,16 @@ public class AddressBookController {
     }
 
     @PostMapping("/addBuddy")
-    public String addBuddy(@RequestParam Long id, @RequestParam String name, @RequestParam String phoneNumber) {
+    public String addBuddy(@RequestParam(name="owner", required=true) String owner, @RequestParam Long id, @RequestParam String name, @RequestParam String phoneNumber) {
         // Retrieve the address book you want to add the buddy to (you can modify this logic)
-        AddressBook addressBook = addressBookRepository.findByOwner("Daniah");
+        AddressBook addressBook = addressBookRepository.findByOwner(owner);
 
         if (addressBook != null) {
             BuddyInfo buddy = new BuddyInfo(id, name, phoneNumber);
             addressBook.addBuddy(buddy);
             addressBookRepository.save(addressBook);
         }
-        return "redirect:/addressbook?owner=Daniah";
+        return "redirect:/addressbook?owner=" + owner;
     }
-
 
 }

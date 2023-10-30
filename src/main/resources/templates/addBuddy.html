@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
   <title>Add Buddy</title>
 </head>
 <body>
 <h1>Add Buddy</h1>
-<form action="/api/addressbooks/[[${owner}]]/buddies" method="post">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" required>
-  <br>
-  <label for="phoneNumber">Phone Number:</label>
-  <input type="text" id="phoneNumber" name="phoneNumber" required>
-  <br>
+<form action="/addBuddy" method="post">
+  AddressBook Owner Name: <input type="text" name="owner" required><br>
+  Buddy ID:  <input type="text" name="id" required><br>
+  Buddy Name: <input type="text" name="name" required><br>
+  Phone Number: <input type="text" name="phoneNumber" required><br>
   <button type="submit">Add Buddy</button>
 </form>
 </body>
